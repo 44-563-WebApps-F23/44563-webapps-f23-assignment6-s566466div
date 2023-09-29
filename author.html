@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head><title>Author entry Divya Bathala</title></head>
+<body>
+
+<h2>Author entry</h2>
+
+<form>
+    <!-- First Input: Secret String (Password) -->
+    <label for="secretAuthor">The hidden author name</label>
+    <input type="password" id="secretAuthor" value="Dickens">
+
+    <!-- Second Input: Guess the Author -->
+    <label for="guessAuthor">Guess the author</label>
+    <input type="text" id="guessAuthor">
+
+    <!-- Button to Check the Guess -->
+    <input type="button" value="Check the guess" onclick="checkAuthor()">
+
+    <!-- Element to Display Results -->
+    <p>Results: <span id="result"></span></p>
+</form>
+
+<!-- JavaScript -->
+<script>
+    // Global Variables
+    let good = 0;
+    let oops = 0;
+
+    // Function to Check Author
+    function checkAuthor() {
+        // Get the values from the input elements
+        const secretAuthor = document.getElementById("secretAuthor").value;
+        const guessAuthor = document.getElementById("guessAuthor").value;
+
+        // Compare the values and update scores
+        if (secretAuthor === guessAuthor) {
+            good++;
+            alert("You got it right!");
+        } else {
+            oops++;
+            alert("Sorry!");
+        }
+
+        // Update the innerHTML of the result element
+        const resultElement = document.getElementById("result");
+        resultElement.innerHTML = `Good: ${good}, Oops: ${oops}`;
+    }
+</script>
+
+
+</body>
+</html> 
