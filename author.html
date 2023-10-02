@@ -47,6 +47,38 @@
         resultElement.innerHTML = `Good: ${good}, Oops: ${oops}`;
     }
 </script>
+<div id="imageContainer">
+    <img id="displayImage" src="image1.jpg" alt="City 1" width="100" height="100" onclick="selectImage()">
+</div>
+
+<!-- JavaScript -->
+<script>
+    // Global Variable to track the currently displayed image
+    let useImage = 1;
+
+    // Function to select the next image
+    function selectImage() {
+        const imageElement = document.getElementById("displayImage");
+
+        // Use a switch statement to determine which image to display next
+        switch (useImage) {
+            case 1:
+                imageElement.src = "BANGALORE.jpg";
+                useImage = 2;
+                break;
+            case 2:
+                imageElement.src = "tirupati.jpg";
+                useImage = 3;
+                break;
+            case 3:
+                imageElement.src = "agra.jpg"; // Wrap back to the first image
+                useImage = 1;
+                break;
+            default:
+                break;
+        }
+    }
+</script>
 
 
 </body>
