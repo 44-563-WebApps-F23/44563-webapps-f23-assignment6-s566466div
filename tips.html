@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head><title>
+    Divya shows tip amounts
+</title></head>
+ 
+<body>
+
+<h2>Divya shows tip amounts</h2>
+
+<label for="baseAmount">Enter base amount</label>
+<input type="number" id="baseAmount" value="50"><br>
+<label for="tipPercent">Enter the tip percent</label>
+<input type="number" id="tipPercent" value="15"><br>
+
+<p id="operationResult"></p>
+<button onclick="tips()">Show tip</button>
+<div id="results"></div>
+
+<script>
+    function tips() {
+    const baseAmountInput = document.getElementById("baseAmount");
+    const tipPercentInput = document.getElementById("tipPercent");
+    const resultsElement = document.getElementById("results");
+
+    const baseAmount = parseFloat(baseAmountInput.value);
+    const tipPercent = parseFloat(tipPercentInput.value);
+    let toShow = "";
+
+    for (let i = 0; i < 5; i++) {
+        const calculatedTip = baseAmount * (tipPercent + i * 4) / 100;
+        toShow += `${tipPercent + i * 4}% is ${calculatedTip.toFixed(2)}; `;
+    }
+
+    resultsElement.innerHTML = "Tips are: " + toShow;
+}
+
+
+</script>
+
+</body>
+</html> 
