@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    Goes on a Cruise
+ </title></head>
+<body>
+
+<h2>Goes on a Cruise</h2>
+
+<form>
+    <input type="checkbox" id="sharesCabin" value="True">
+    <label for="sharesCabin">Shares Cabin</label>
+    <input type="checkbox" id="breakfast" value="True">
+    <label for="breakfast">Breakfast</label>
+    <input type="checkbox" id="poolPass" value="False">
+    <label for="poolPass">Pool Pass</label>
+
+</form>
+
+
+
+<button onclick="selectCruise()">Select a cruise</button>
+
+<form>
+    <label for="numberOfDays">Enter the number of days</label>
+    <input type="text" id="numberOfDays" value="7">
+    <label for="cruisePrice">Enter price</label>
+    <input type="text" id="cruisePrice" value="1000">
+    <button type="button" onclick="updateCruise()">Update the cruise</button>
+</form>
+<div id="cruiseResults"></div>
+<script>
+    let my_cruise = {};
+
+    function selectCruise() {
+        // Reset my_cruise to an empty object
+        my_cruise = {};
+
+        // Get the checkbox values
+        const sharesCabinCheckbox = document.getElementById("sharesCabin");
+        const breakfastCheckbox = document.getElementById("breakfast");
+        const poolPassCheckbox = document.getElementById("poolPass");
+        
+        // Set properties in my_cruise based on checkbox values
+        my_cruise.shared = sharesCabinCheckbox.checked;
+        my_cruise.breakfast = breakfastCheckbox.checked;
+        my_cruise.pool = poolPassCheckbox.checked;
+
+        // Display my_cruise object in the designated element
+        const cruiseResultsElement = document.getElementById("cruiseResults");
+        cruiseResultsElement.innerHTML = JSON.stringify(my_cruise);
+     
+    }
+    function updateCruise() {
+            // Get the value from the input elements
+            const numberOfDaysInput = document.getElementById("numberOfDays");
+            const cruisePriceInput = document.getElementById("cruisePrice");
+
+            // Get the values entered by the user
+            const numberOfDays = numberOfDaysInput.value;
+            const cruisePrice = cruisePriceInput.value;
+
+            // Update the cruise object properties
+            my_cruise.days = numberOfDays;
+            my_cruise.price = cruisePrice;
+
+            // Display the updated cruise object
+            const cruiseResultsElement = document.getElementById("cruiseResults");
+            cruiseResultsElement.innerHTML = JSON.stringify(my_cruise);
+        }
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html> 
