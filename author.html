@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
- <head><title>Author entry</title></head>
+ <head><title>Author entry</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Your existing stylesheets and scripts go here -->
+</head>
+ 
 <body>
 
 <h2>Author entry  Divya Bathala</h2>
+<div class="container mt-5">
+     
+    <div class="row mt-3">
+        <div class="col-md-6 offset-md-3">
+            <div class="alert alert-danger" id="incorrectGuesses" style="display: none;"></div>
+        </div>
+    </div>
+</div>
 
 <form>
     <!-- First Input: Secret String (Password) -->
@@ -32,6 +49,9 @@
         // Get the values from the input elements
         const secretAuthor = document.getElementById("secretAuthor").value;
         const guessAuthor = document.getElementById("guessAuthor").value;
+        if(oops >= 7){
+      document.getElementById("button_check").onclick = ranOutOfGuess();
+        }
 
         // Compare the values and update scores
         if (secretAuthor === guessAuthor) {
@@ -45,8 +65,19 @@
         // Update the innerHTML of the result element
         const resultElement = document.getElementById("result");
         resultElement.innerHTML = `Good: ${good}, Oops: ${oops}`;
+        console.log(oops);
     }
+    </script>
+    <div></div>
+    <script>
+    
+    function ranOutOfGuess(){
+    alert("Sorry, ran out of guesses.");
+    }
+
+    
 </script>
+
 <div id="imageContainer">
     <img id="displayImage" src="tirupati.jpg" alt="tirupathi" width="100" height="100" onclick="selectImage()">
 </div>
